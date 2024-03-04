@@ -1,0 +1,75 @@
+/* This sheet is for styles relevant for both the landing page and article pages */
+
+/* GENERAL STYLE: setting overall font and alignment, and making sure elements fill up viewport vertically */
+
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Using flexbox to stack elements vertically */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER SECTION */
+
+header {
+    background-color: darkslategray;
+    vertical-align: middle;
+    padding: 3vh;
+    flex: 1 1 10vh; 
+}
+
+h1 {
+    font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy;
+    color: ivory;
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+header a {
+    color: ivory;
+}
+
+/* MAIN SECTION */
+
+main {
+    background-color: darkslategray;
+}
+
+/* FOOTER */
+
+footer {
+    flex: 1 1 5vh; 
+    background-color: lightslategray;
+    font-size: 1em;
+    padding: 2vh;
+    color: ivory;
+    text-align: right;
+}
+
+/* Desktop version adaptations */
+
+@media (min-width: 1100px) {
+
+    /* Increase font size of main header for larger screens to reduce white space */
+
+    h1 {
+        font-size: 4em;
+    }
+
+}

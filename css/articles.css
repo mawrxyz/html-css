@@ -1,0 +1,226 @@
+/* This sheet is for css styles specific to article pages */
+
+/* NAV BAR */
+
+nav {
+    flex: 1 1 15vh;
+    background-color: ivory;
+    padding: 5vh;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+nav a {
+    color: teal;
+}
+
+nav a:hover {
+    color: aquamarine;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li, nav li a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+    /* Indicate current article page in a different colour (link also removed in html) */
+
+.current {
+    color: lightslategray;
+}
+
+/* ARTICLE SECTION */
+
+main {
+    flex: 1 1 70vh; 
+}
+
+article {
+    color: white;
+    background-color: teal;
+    padding: 2vw;
+    width: 80%;
+    margin: auto;
+
+}
+/* Main article image: scale according to screensize to avoid spilling out of section/taking up disproportionate space */
+
+img {
+    max-width: 90%;
+    max-height: 50vh;
+    object-fit: contain;
+    padding-bottom: 1em;
+}
+
+.img-caption {
+    text-align: center;
+    font-size: 0.8em;
+    font-style: italic;
+    padding-bottom: 1em;
+}
+
+/* Setting styles for text elements in article */
+
+h2, h3, h4, h5 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h3, h4, p, article li, iframe {
+    text-align: left;
+    padding-bottom: 1em;
+}
+
+h2 {
+    font-variant: small-caps;
+    font-size: 2.5em;
+    padding-bottom: 1em;
+    color: cyan;
+}
+
+article a {
+    color: aquamarine;
+}
+
+article a:hover {
+    color: turquoise;
+}
+
+article p {
+    font-size: 1em;
+    text-align: justify;
+}
+
+.quote {
+    width: 80%; 
+    margin: 1em auto 0;
+    color: cyan;
+    font-style: oblique;
+    font-weight: lighter;
+    font-size: 1.2em;
+}
+
+.attribution {
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+article ol {
+    padding-left: 2em;
+}
+
+article ul {
+    padding-left: 5em;
+}
+
+article li {
+    font-size: 0.9em;
+    word-wrap: break-word;
+}
+
+article cite {
+    font-style: italic;
+}
+
+article h3 {
+    font-size: 1.5em;
+}
+
+article h4 {
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+h5 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-variant: small-caps;
+    font-size: 1.5em;
+    color: cyan;
+}
+
+strong {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+#flowchart {
+    max-height: 100vh;
+}
+
+/* Code to make YouTube videos responsive taken from howchoo 
+Accessed 30 October 2022
+https://howchoo.com/webdev/how-to-make-youtube-videos-responsive-without-js 
+
+    [[.embed-youtube {
+        position: relative;
+        padding-bottom: 56.25%; /* - 16:9 aspect ratio (most common) */
+        /* padding-bottom: 62.5%; - 16:10 aspect ratio */
+        /* padding-bottom: 75%; - 4:3 aspect ratio */
+        /* padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .embed-youtube iframe,
+    .embed-youtube object,
+    .embed-youtube embed {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }]] 
+
+Nested it within media query so that it only applies when really necessary to prevent the video from spilling out of the article section 
+as I prefer the video to take up less space on wider screens as is the default */
+
+@media (max-width: 800px) {
+    .embed-youtube {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .embed-youtube iframe,
+    .embed-youtube object,
+    .embed-youtube embed {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    } 
+}
+
+
+/* Adaptions for wider screens: nav bar elements show in a row rather than stacked vertically, some adjustments to relative ratios of sections */
+
+@media (min-width: 1100px) {
+
+    nav {
+        flex: 1 1 10vh;
+        padding: 3vh;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 2vh;
+    }
+
+    main {
+        flex: 1 1 75vh; 
+    }
+
+    /* Add scrollbar to article for larger screens so nav bar is accessible all the time */
+
+    article {
+        height: 75vh;
+        overflow: scroll;
+    }
+}

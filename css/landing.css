@@ -1,0 +1,116 @@
+/* This sheet is for css styles specific to landing page */
+
+/* MAIN SECTION (nests another flexbox within the flexbox in base.css) */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+h2, li, li em, li a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.image-wrapper {
+    flex: 1 1 0;
+    position: relative;
+}
+
+main img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Code to overlay text on image adapted from W3Schools
+Accessed 20 October 2022 
+https://www.w3schools.com/howto/howto_css_image_text.asp 
+    [[.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    }]]
+*/
+
+h2 {
+    font-size: 1.5em;
+    font-weight: lighter;
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 0.5em; 
+    color: ivory;
+    background-color: rgba(47,79,79,0.5);
+}
+
+/* Styling an aside containing image credits */
+
+aside {
+    flex: 1 1 15vh;
+    padding: 1em 2em;
+    background-color: darkslategray;
+    color: ivory;
+    font-size: 0.8em;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0.5em 0;
+}
+
+ol {
+    padding-left: 1em; 
+}
+
+h3, li {
+    text-align: left;
+}
+
+li a {
+    color:aquamarine;
+}
+
+li a:hover {
+    color:lightslategray;
+}
+
+cite {
+    font-style: italic;
+}
+
+/* Adaptions for wider desktop screens to reduce vertical white space */
+
+@media (min-width: 1100px) {
+
+    /* Line up landing page images in an evenly spaced row, change aspect ratio to square and 
+    make them just slightly smaller so there's a bit of space between them */
+
+    main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    main img {
+        aspect-ratio: 1/1;
+        width: 99.5%;
+    }
+
+    /* Code to blur image on hover taken from CodeBlocQ
+    Accessed 15 October 2022
+    https://www.codeblocq.com/2016/05/Blur-Image-on-Hover-with-CSS/
+        [[img:hover {
+        webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+        /* filter: blur(4px);
+        }]]
+    Adapted to reduce the degree of blur */
+
+    .image-wrapper:hover {
+        webkit-filter: blur(2px);
+        filter: blur(2px);
+    }
+}   
